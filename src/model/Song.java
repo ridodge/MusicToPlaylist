@@ -16,7 +16,7 @@ import javax.persistence.Table;
  * 
  */
 @Entity
-@Table(name = "songs")
+@Table(name = "song")
 public class Song {
 	@Id
 	@GeneratedValue
@@ -29,8 +29,7 @@ public class Song {
 	@Column(name = "GENRE")
 	private String genre;
 
-	public Song(int id, String title, String artist, String genre) {
-		this.id = id;
+	public Song(String title, String artist, String genre) {
 		this.title = title;
 		this.artist = artist;
 		this.genre = genre;
