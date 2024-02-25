@@ -20,7 +20,7 @@ import model.Song;
  * 
  */
 public class SongHelper {
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("music");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Music");
 
 	public void insertItem(Song si) {
 		EntityManager em = emfactory.createEntityManager();
