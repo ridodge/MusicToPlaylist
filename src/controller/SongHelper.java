@@ -20,16 +20,21 @@ import model.Song;
  * 
  */
 public class SongHelper {
+	
 	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Music");
 
 	public void insertItem(Song si) {
+		
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(si);
 		em.getTransaction().commit();
 		em.close();
 	}
+	
+	@SuppressWarnings("unchecked")
 	public List<Song> showAllItems() {
+		
 		EntityManager em = emfactory.createEntityManager();
 		List<Song> allItems = em.createQuery("SELECT i FROM Song i").getResultList();
 		return allItems;
