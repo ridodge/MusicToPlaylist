@@ -18,6 +18,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "song")
 public class Song {
+	
 	@Id
 	@GeneratedValue
 	@Column(name = "ID")
@@ -29,6 +30,7 @@ public class Song {
 	@Column(name = "GENRE")
 	private String genre;
 
+	
 	public Song(String title, String artist, String genre) {
 		this.title = title;
 		this.artist = artist;
@@ -38,6 +40,7 @@ public class Song {
 	public Song() {
 	}
 
+	
 	public int getId() {
 		return id;
 	}

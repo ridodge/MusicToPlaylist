@@ -2,26 +2,17 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add Item</title>
-<style>
-.display {
-display: flex;
-align-items: center;
-justify-content:center;
-height: 100vh;
-flex-direction: column}
-</style>
+<title>Song and Playlist Program</title>
 </head>
-<body class="display">
-<form style="display:flex; flex-direction: column;" action = "addSongServlet" method="post">
-Title: <input type ="text" name = "title">
-Artist: <input type = "text" name = "artist">
-Genre: <input type = "text" name = "Genre">
-<input type = "submit" value="Add Item">
-</form> <br />
-<a href = "viewAllItemsServlet">View all songs</a>
-	<a href="viewAllSongsServlet">View play lists</a>
-	<br />
-	<a href="addSongsForPlaylistServlet">Create a new play list</a>
+<body>
+	<h1>Welcome to the Song and Playlist Program</h1>
+    <h3>Select what action you'd like to do:</h3>
+    <form>
+        <a href="addSong.jsp">Add Song</a>
+        <a href="addPlaylist.jsp">Add Playlist</a>
+        <br/><br/>
+        <input type="submit" value="View Songs">
+        <input type="submit" value="View Playlists">
+    </form>
 </body>
 </html>
