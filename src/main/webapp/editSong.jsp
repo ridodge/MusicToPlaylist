@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Add Song</title>
+<title>Editing Song</title>
 <style>
 	.display {
 		display: flex;
@@ -16,17 +16,19 @@
 </style>
 </head>
 <body class="display">
-	<form style="display:flex; flex-direction: column;"
-	 	  action = "addSongServlet" method="post">
-		Title: <input type="text" name="title">
-		Artist: <input type="text" name="artist">
-		Genre: <input type="text" name="genre">
-		<br/>
-		<input type = "submit" value="Add Song">
+	<form action="editSongServlet" method="post"
+		  style="display:flex; flex-direction: column;">
+		Title: <input type="text" name="title" value="${itemToEdit.title}">
+		Artist: <input type="text" name="artist" value="${itemToEdit.artist}">
+		Genre: <input type="text" name="genre" value="${itemToEdit.genre}">
+	<input type="hidden" name="id" value="${itemToEdit.id}">
+	<br/>
+	<input type="submit" value="Save Edited Item">
 	</form> <br />
 	<a href = "viewAllItemsServlet">View All Songs</a>
 	<a href="viewAllSongsServlet">View Playlist</a>
 	<br />
 	<a href="addSongsForPlaylistServlet">Create New Playlist</a>
+
 </body>
 </html>

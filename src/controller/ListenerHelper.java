@@ -20,7 +20,7 @@ import model.Listener;
  * 
  */
 public class ListenerHelper {
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Cars");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Listener");
 
 	public void insertListener(Listener l) {
 		EntityManager em = emfactory.createEntityManager();
@@ -30,16 +30,17 @@ public class ListenerHelper {
 		em.close();
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Listener> showAllDrivers() {
 		EntityManager em = emfactory.createEntityManager();
-		List<Listener> allListeners = em.createQuery("SELECT l FROM Listener l").getResultList();
+		List<Listener> allListeners = em.createQuery("SELECT l FROM listener l").getResultList();
 		return allListeners;
 	}
 
 	public Listener findListener(String nameToLookUp) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<Listener> typedQuery = em.createQuery("select l from listner l where l.listenerName = :selectedName",
+		TypedQuery<Listener> typedQuery = em.createQuery("select l from listener l where l.listenerName = :selectedName",
 				Listener.class);
 
 		typedQuery.setParameter("selectedName", nameToLookUp);
