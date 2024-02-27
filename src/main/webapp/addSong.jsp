@@ -19,7 +19,7 @@
 	<form style="display:flex; flex-direction: column;" action = "addSongServlet" method="post">
 		Title: <input type ="text" name = "title">
 		Artist: <input type = "text" name = "artist">
-		Genre: <input type = "text" name = "Genre">
+		Genre: <input type = "text" name = "genre">
 		<br/>
 		<input type = "submit" value="Add Song">
 	</form> <br />
