@@ -72,7 +72,7 @@ public class SongHelper {
 	 * @param idToEdit
 	 * @return
 	 */
-	public Song searchForItemById(int idToEdit) {
+	public Song searchForSongById(int idToEdit) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();

@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,11 +25,11 @@ public class Playlist {
 	@Id
 	@GeneratedValue
 	@Column(name="ID")
-	private int playlistId;
+	private int id;
 	@Column(name="NAME")
 	private String playlistName;
-	@Column(name="CREATOR")
-	private String playlistCreator;
+	@ManyToOne(cascade=CascadeType.PERSIST)
+	private Listener listener;
 	@OneToMany(cascade=CascadeType.MERGE, fetch= FetchType.EAGER)
 	private List<Song> songs;
 	
@@ -36,19 +37,19 @@ public class Playlist {
 	public Playlist() {
 	}
 
-	public Playlist(String playlistName, String playlistCreator, List<Song> songs) {
+	public Playlist(String playlistName, Listener listener, List<Song> songs) {
 		this.playlistName = playlistName;
-		this.playlistCreator = playlistCreator;
+		this.listener = listener;
 		this.songs = songs;
 	}
 
 	
 	public int getPlaylistId() {
-		return playlistId;
+		return id;
 	}
 
 	public void setPlaylistId(int playlistId) {
-		this.playlistId = playlistId;
+		this.id = playlistId;
 	}
 
 	public String getPlaylistName() {
@@ -59,12 +60,12 @@ public class Playlist {
 		this.playlistName = playlistName;
 	}
 
-	public String getPlaylistCreator() {
-		return playlistCreator;
+	public Listener getListener() {
+		return this.listener;
 	}
 
-	public void setPlaylistCreator(String playlistCreator) {
-		this.playlistCreator = playlistCreator;
+	public void setPlaylistCreator(Listener l) {
+		this.listener = l;
 	}
 
 	public List<Song> getSongs() {
@@ -77,8 +78,8 @@ public class Playlist {
 
 	@Override
 	public String toString() {
-		return "Playlist [playlistId=" + playlistId + ", playlistName=" + playlistName + ", playlistCreator="
-				+ playlistCreator + ", songs=" + songs + "]";
+		return "Playlist [playlistId=" + id + ", playlistName=" + playlistName + ", Listener="
+				+ listener + ", songs=" + songs + "]";
 	}
 	
 }

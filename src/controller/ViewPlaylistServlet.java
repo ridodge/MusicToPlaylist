@@ -1,25 +1,26 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Song;
-
+import model.Playlist;
 /**
- * Servlet implementation class EditSongServlet
+ * Servlet implementation class ViewPlaylistServlet
  */
-@WebServlet("/editSongServlet")
-public class EditSongServlet extends HttpServlet {
+@WebServlet("/viewPlaylistServlet")
+public class ViewPlaylistServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EditSongServlet() {
+    public ViewPlaylistServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,28 +30,22 @@ public class EditSongServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		PlaylistHelper tdh = new PlaylistHelper();
+		List<Playlist> abc = tdh.getPlaylists();
+		request.setAttribute("allPlaylists", abc);
+		System.out.println(abc);
+		if(abc.isEmpty()){
+		request.setAttribute("allPlaylists", abc);
+		}
+		getServletContext().getRequestDispatcher("/viewPlaylists.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		SongHelper sh = new SongHelper();
-		
-		String title = request.getParameter("title");
-		String artist = request.getParameter("artist");
-		String genre = request.getParameter("genre");
-		Integer tempId = Integer.parseInt(request.getParameter("id"));
-		
-		Song itemToUpdate = sh.searchForSongById(tempId);
-		itemToUpdate.setTitle(title);
-		itemToUpdate.setArtist(artist);
-		itemToUpdate.setGenre(genre);
-		
-		sh.updateItem(itemToUpdate);
-		
-		getServletContext().getRequestDispatcher("/viewSongsServlet").forward(request, response);
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

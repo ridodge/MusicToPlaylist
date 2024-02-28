@@ -24,8 +24,8 @@
 		<br/>
 		<input type = "submit" value="Add Song">
 	</form> <br />
-	<a href = "viewAllItemsServlet">View All Songs</a>
-	<a href="viewAllSongsServlet">View Playlist</a>
+	<a href = "viewSongsServlet">View All Songs</a>
+	<a href="viewPlaylistServlet">View Playlist</a>
 	<br />
 	<a href="addSongsForPlaylistServlet">Create New Playlist</a>
 </body>

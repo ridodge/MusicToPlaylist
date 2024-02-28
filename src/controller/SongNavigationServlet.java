@@ -46,7 +46,7 @@ public class SongNavigationServlet extends HttpServlet {
 			try {
 				
 				Integer tempId = Integer.parseInt(request.getParameter("id"));
-				Song itemToDelete = sh.searchForItemById(tempId);
+				Song itemToDelete = sh.searchForSongById(tempId);
 				sh.deleteItem(itemToDelete);
 				
 			} catch (NumberFormatException e) {
@@ -59,7 +59,7 @@ public class SongNavigationServlet extends HttpServlet {
 			try {
 				
 				Integer tempId = Integer.parseInt(request.getParameter("id"));
-				Song itemToEdit = sh.searchForItemById(tempId);
+				Song itemToEdit = sh.searchForSongById(tempId);
 				request.setAttribute("itemToEdit", itemToEdit);
 				path = "/editSong.jsp";
 				
