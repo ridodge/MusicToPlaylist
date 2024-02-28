@@ -15,25 +15,28 @@ import model.Playlist;
 @WebServlet("/playlistNavigationServlet")
 public class PlaylistNavigationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public PlaylistNavigationServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public PlaylistNavigationServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -58,7 +61,7 @@ public class PlaylistNavigationServlet extends HttpServlet {
 			try {
 				Integer tempId = Integer.parseInt(request.getParameter("id"));
 				Playlist playlistToEdit = ph.searchForPlaylistById(tempId);
-				request.setAttribute("listToEdit", playlistToEdit);
+				request.setAttribute("playlistToEdit", playlistToEdit);
 				SongHelper shForItems = new SongHelper();
 				request.setAttribute("allItems", shForItems.showAllItems());
 				if (shForItems.showAllItems().isEmpty()) {
@@ -69,12 +72,8 @@ public class PlaylistNavigationServlet extends HttpServlet {
 				getServletContext().getRequestDispatcher("/viewPlaylistServlet").forward(request, response);
 			}
 		} else if (act.equals("add")) {
-			SongHelper shForItems = new SongHelper();
-			request.setAttribute("allItems", shForItems.showAllItems());
-			if (shForItems.showAllItems().isEmpty()) {
-				request.setAttribute("allItems", " ");
-				getServletContext().getRequestDispatcher("/addPlaylist.jsp").forward(request, response);
-			}
+			getServletContext().getRequestDispatcher("/addPlaylist.jsp").forward(request, response);
 		}
+
 	}
 }

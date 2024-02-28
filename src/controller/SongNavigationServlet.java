@@ -38,7 +38,7 @@ public class SongNavigationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String act = request.getParameter("doThisToItem");
-		String path = "/viewSongServlet";
+		String path = "/viewSongsServlet";
 		
 		SongHelper sh = new SongHelper();
 		

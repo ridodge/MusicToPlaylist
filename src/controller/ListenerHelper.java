@@ -20,7 +20,7 @@ import model.Listener;
  * 
  */
 public class ListenerHelper {
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Listener");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Music");
 
 	public void insertListener(Listener l) {
 		EntityManager em = emfactory.createEntityManager();
@@ -40,7 +40,7 @@ public class ListenerHelper {
 	public Listener findListener(String nameToLookUp) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<Listener> typedQuery = em.createQuery("select l from listener l where l.listenerName = :selectedName",
+		TypedQuery<Listener> typedQuery = em.createQuery("select l from Listener l where l.listenerName = :selectedName",
 				Listener.class);
 
 		typedQuery.setParameter("selectedName", nameToLookUp);

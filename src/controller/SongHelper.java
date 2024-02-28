@@ -44,7 +44,7 @@ public class SongHelper {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		TypedQuery<Song> typedQuery = em.createQuery(
-				"SELECT li FROM ListItem li WHERE li.make = :selectedMake and li.model = :selectedModel",
+				"SELECT s FROM Song s WHERE s.artist = :selectedArtist and s.title = :selectedTitle",
 				Song.class);
 		typedQuery.setParameter("selectedTitle", toDelete.getTitle());
 		typedQuery.setParameter("selectedArtist", toDelete.getArtist());

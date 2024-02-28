@@ -64,7 +64,7 @@ public class Playlist {
 		return this.listener;
 	}
 
-	public void setPlaylistCreator(Listener l) {
+	public void setListener(Listener l) {
 		this.listener = l;
 	}
 
