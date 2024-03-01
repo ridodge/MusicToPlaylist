@@ -6,8 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Edit An Existing Playlist</title>
+<style>
+	.display {
+		display: flex;
+		align-items: center;
+		justify-content:center;
+		height: 100vh;
+		flex-direction: column
+		}
+</style>
 </head>
-<body>
+<body class="display">
+	<h3>Hold ctrl and click to select which songs you would like in the playlist:</h3>
 	<form action="editPlaylistServlet" method="post">
 		<input type="hidden" name="id" value="${playlistToEdit.playlistId}"> 
 		Playlist Name: <input type="text" name="playlistName" value="${playlistToEdit.playlistName}"><br />
@@ -18,6 +28,7 @@
 			</c:forEach>
 		</select> <br /> <input type="submit" value="Done Editing">
 	</form>
+	<br/>
 	<a href="index.html">Home</a>
 </body>
 </html>

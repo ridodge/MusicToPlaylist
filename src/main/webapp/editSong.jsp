@@ -16,6 +16,7 @@
 </style>
 </head>
 <body class="display">
+	<h3>What would you like to update?</h3>
 	<form action="editSongServlet" method="post"
 		  style="display:flex; flex-direction: column;">
 		Title: <input type="text" name="title" value="${itemToEdit.title}">

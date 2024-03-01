@@ -41,16 +41,16 @@ public class AddPlaylistServlet extends HttpServlet {
 		SongHelper sh = new SongHelper();
 		String playlistName = request.getParameter("titleName");
 		String listenerName = request.getParameter("listenerName");
-		String[] selectedItems = request.getParameterValues("songsToAdd");
-		List<Song> selectedItemsInList = new ArrayList<Song>();
-		if (selectedItems != null && selectedItems.length > 0) {
-			for (int i = 0; i < selectedItems.length; i++) {
-				Song s = sh.searchForSongById(Integer.parseInt(selectedItems[i]));
-				selectedItemsInList.add(s);
-			}
-		}
+//		String[] selectedItems = request.getParameterValues("songsToAdd");
+//		List<Song> selectedItemsInList = new ArrayList<Song>();
+//		if (selectedItems != null && selectedItems.length > 0) {
+//			for (int i = 0; i < selectedItems.length; i++) {
+//				Song s = sh.searchForSongById(Integer.parseInt(selectedItems[i]));
+//				selectedItemsInList.add(s);
+//			}
+//		}
 		Listener listener = new Listener(listenerName);
-		Playlist pl = new Playlist(playlistName, listener, selectedItemsInList);
+		Playlist pl = new Playlist(playlistName, listener);
 		PlaylistHelper ph = new PlaylistHelper();
 		ph.insertNewPlaylist(pl);
 		System.out.println("Success!");

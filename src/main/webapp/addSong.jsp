@@ -16,6 +16,7 @@
 </style>
 </head>
 <body class="display">
+	<h3>Please enter song information:</h3>
 	<form style="display:flex; flex-direction: column;"
 	 	  action = "addSongServlet" method="post">
 		Title: <input type="text" name="title">
@@ -27,6 +28,6 @@
 	<a href = "viewSongsServlet">View All Songs</a>
 	<a href="viewPlaylistServlet">View Playlist</a>
 	<br />
-	<a href="addSongsForPlaylistServlet">Create New Playlist</a>
+	<a href="index.html">Home</a>
 </body>
 </html>

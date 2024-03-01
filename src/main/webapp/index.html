@@ -3,13 +3,22 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Song and Playlist Program</title>
+<style>
+.display {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	flex-direction: column
+}
+</style>
 </head>
-<body>
+<body class="display">
 	<h1>Welcome to the Song and Playlist Program</h1>
     <h3>Select what action you'd like to do:</h3>
     <form>
-        <a href="addSong.jsp">Add Song</a>
-        <a href="addSongsForPlaylistServlet">Add Playlist</a>
+        <input type="button" value="Add Song" onclick="location.href='addSong.jsp'">
+        <input type="button" value="Add Playlist" onclick="location.href='addPlaylist.jsp'">
         <br/><br/>
         <input type="button" value="View Songs" onclick="location.href='viewSongsServlet'">
         <input type="button" value="View Playlists" onclick="location.href='viewPlaylistServlet'">
