@@ -36,6 +36,11 @@ public class Playlist {
 	
 	public Playlist() {
 	}
+	
+	public Playlist(String playlistName, Listener listener) {
+		this.playlistName = playlistName;
+		this.listener = listener;
+	}
 
 	public Playlist(String playlistName, Listener listener, List<Song> songs) {
 		this.playlistName = playlistName;
@@ -82,4 +87,7 @@ public class Playlist {
 				+ listener + ", songs=" + songs + "]";
 	}
 	
+	public void addSongToPlaylist(Song songToAdd) {
+		this.songs.add(songToAdd);
+	}
 }

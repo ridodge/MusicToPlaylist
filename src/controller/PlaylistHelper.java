@@ -15,11 +15,13 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import model.Playlist;
+import model.Song;
 
 /**
  * 
  */
 public class PlaylistHelper {
+	
 	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Music");
 
 	public void insertNewPlaylist(Playlist p) {
@@ -65,6 +67,17 @@ public class PlaylistHelper {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		em.merge(toEdit);
+		em.getTransaction().commit();
+		em.close();
+	}
+	
+	public void addToPlaylist(Song toAdd, Playlist addTo) {
+		
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		Playlist updated = addTo;
+		updated.addSongToPlaylist(toAdd);
+		em.merge(updated);
 		em.getTransaction().commit();
 		em.close();
 	}

@@ -17,19 +17,15 @@
 </style>
 </head>
 <body class="display">
+	<h2>Please enter the name of the playlist and who created it:</h2>
 	<form style="display: flex; flex-direction: column;"
 		action="addPlaylistServlet" method="post">
 		Playlist Name: <input type="text" name="titleName"> Listener: <input
 			type="text" name="listenerName">
-			 Songs:<br /> <select name="songsToAdd" multiple size="6">
-			<c:forEach items="${requestScope.allItems}" var="currentitem">
-				<option value="${currentitem.id}">${currentitem.title} by
-					${currentitem.artist}</option>
-			</c:forEach>
-			</select>
 			<br />
 			<input type="submit" value="Add Playlist">
 	</form>
 	<br />
+	<a href="index.html">Home</a>
 </body>
 </html>

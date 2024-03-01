@@ -71,8 +71,21 @@ public class SongNavigationServlet extends HttpServlet {
 		}
 		else if(act.equals("add")) {
 			
-			path = "/index.html"; // needs changed
+			path = "/addSong.jsp"; 
 			
+		}
+		else if(act.equals("addTo")) {
+			try {
+				
+				Integer tempId = Integer.parseInt(request.getParameter("id"));
+				Song songToAdd = sh.searchForSongById(tempId);
+				request.setAttribute("songToAdd", songToAdd);
+				path = "/addSongToPlaylistServlet";
+				
+			} catch (NumberFormatException e) {
+				
+				System.out.println("Forgot to select an item");
+			}
 		}
 		
 		getServletContext().getRequestDispatcher(path).forward(request, response);
